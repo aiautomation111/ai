@@ -11,8 +11,7 @@ const HeroSection = () => {
             Not Just Mobile 
           </h1>
           <p className="text-gray-400 text-lg">
-            Learn at your own pace with expert-guided online lessons and
-            real-world preparation.
+            Kyzen Dev designs, develops, and optimizes mobile apps for leading brands. We unlock new value through strategies, platforms, middleware, and system integrations that revolutionize the way these brands operate.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
