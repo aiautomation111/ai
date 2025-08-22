@@ -8,10 +8,10 @@ const HeroSection = () => {
         {/* القسم الأيسر: المحتوى النصي */}
         <div className="flex flex-col gap-8 pr-0 md:pr-10">
           <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-            Not Just Mobile 
+            Not Just Mobile Experts.</br> Its An <span className="text-red-500">Experience!</span>
           </h1>
           <p className="text-gray-400 text-lg">
-            Kyzen Dev designs, develops, and optimizes mobile apps for leading brands. We unlock new value through strategies, platforms, middleware, and system integrations that revolutionize the way these brands operate.
+Our Digital Solution Are The Defference Between You Owning a Job And Owning Your Time. 
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
