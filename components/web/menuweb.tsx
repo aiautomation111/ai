@@ -238,12 +238,14 @@ export function NavMobile() {
                 <DropdownMenu>
                   <DropdownMenuTrigger className="text-left">Services</DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuLabel>KyzenDev</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Billing</DropdownMenuItem>
-                    <DropdownMenuItem>Team</DropdownMenuItem>
-                    <DropdownMenuItem>Subscription</DropdownMenuItem>
+                    <DropdownMenuItem>App Development</DropdownMenuItem>
+                    <DropdownMenuItem>Web Development</DropdownMenuItem>
+                    <DropdownMenuItem>WordPress and CMS Development</DropdownMenuItem>
+                    <DropdownMenuItem>Course 4Website Maintenance</DropdownMenuItem>
+                    <DropdownMenuItem>UI/UX Design</DropdownMenuItem>
+                    <DropdownMenuItem>Technical Support</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <Link href={""}>blog</Link>
