@@ -36,7 +36,7 @@ export default function RootLayout({
         />
         <link
           href="Logo-dark.png"
-          rel="icon"
+          rel="icons"
         />
         
       </head>
