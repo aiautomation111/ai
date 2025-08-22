@@ -11,7 +11,7 @@ const HeroSection = () => {
             Not Just Mobile Experts.</br> Its An <span className="text-red-500">Experience!</span>
           </h1>
           <p className="text-gray-400 text-lg">
-Our Digital Solution Are The Defference Between You Owning a Job And Owning Your Time. 
+Our Digital Solution Are The Defference Between You Owning a Job And Owning Your Time.  
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
