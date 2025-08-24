@@ -9,7 +9,6 @@ const HeroSection = () => {
         <div className="flex flex-col gap-8 pr-0 md:pr-10">
           <h1 className="text-5xl md:text-6xl font-bold leading-tight">
   Not Just Mobile Experts.
-  <br />
   Its An <span className="text-red-500">Experience!</span>
 </h1>
           <p className="text-gray-400 text-lg">
