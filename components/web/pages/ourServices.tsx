@@ -139,7 +139,7 @@ const OurServices = () => {
               title={service.title}
               description={service.description}
               linkText={service.linkText}
-              linkHref={service.linkHref}
+              linkHref="/services"
             />
           ))}
         </div>

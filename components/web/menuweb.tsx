@@ -61,42 +61,42 @@ export function NavigationMenuDemo() {
                   <ul className="flex gap-2 bg-white flex-col">
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Your Tech Roadmap</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Product Vision & Roadmap</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Digital Transformation & Optimization</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">AI & Automation</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Tech Audit</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">User Experience & Insights
 </div>
                           </Link>
@@ -114,28 +114,28 @@ export function NavigationMenuDemo() {
                   <ul className="flex p-2 gap-2  bg-white flex-col">
                     <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Web & E-commerce Solutions</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Mobile & Cross-Platform Apps</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">System Integrations & Automation</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">User Experience & Insights 
 </div>
                           </Link>
@@ -143,14 +143,14 @@ export function NavigationMenuDemo() {
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Developers on Rent</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Digital Accessibility</div>
                           </Link>
                         </NavigationMenuLink>
@@ -167,7 +167,7 @@ export function NavigationMenuDemo() {
                   <ul className="flex p-2 gap-2  bg-white flex-col">
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Data & AI-Driven Insights
 </div>
                           </Link>
@@ -175,7 +175,7 @@ export function NavigationMenuDemo() {
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Ongoing Support & Optimization
 </div>
                           </Link>
@@ -183,7 +183,7 @@ export function NavigationMenuDemo() {
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link href={""}>
+                          <Link href={"/services"}>
                             <div className="font-medium">Growth & Conversion Optimization</div>
                           </Link>
                         </NavigationMenuLink>
