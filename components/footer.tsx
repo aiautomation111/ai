@@ -82,7 +82,7 @@ const FooterWeb = () => {
           <div className="hidden md:block lg:hidden"></div>
 
           {/* Link Columns */}
-          <LinkColumn title="Courses" links={courseLinks} />
+          <LinkColumn title="Services" links={courseLinks} />
           <LinkColumn title="Support" links={supportLinks} />
           <LinkColumn title="Legal" links={legalLinks} />
 
