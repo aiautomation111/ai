@@ -29,11 +29,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 const components: { title: string; href: string }[] = [
   { title: "Web Design", href: "/web_design" },
   { title: "Automation AI", href: "/automation_ai" },
 ];
+
+const router = useRouter()
+const gotoservices = () => {
+  return router.push("/services")
+}
 
 export function NavigationMenuDemo() {
   return (
@@ -207,7 +213,7 @@ export function NavigationMenuDemo() {
               asChild
               className={navigationMenuTriggerStyle()}
             >
-              <Link href="/">Contact</Link>
+              <Link href="/contact_us">Contact</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
@@ -240,7 +246,7 @@ export function NavMobile() {
                   <DropdownMenuContent>
                     <DropdownMenuLabel>KyzenDev</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>App Development</DropdownMenuItem>
+                    <DropdownMenuItem onClick={}>App Development</DropdownMenuItem>
                     <DropdownMenuItem>Web Development</DropdownMenuItem>
                     <DropdownMenuItem>WordPress and CMS Development</DropdownMenuItem>
                     <DropdownMenuItem>Course 4Website Maintenance</DropdownMenuItem>
@@ -249,7 +255,7 @@ export function NavMobile() {
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <Link href={""}>blog</Link>
-                <Link href={""}>contact us</Link>
+                <Link href={"/contact_us"}>contact us</Link>
               </div>
             </SheetDescription>
           </SheetHeader>
