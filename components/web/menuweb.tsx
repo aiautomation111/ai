@@ -29,17 +29,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useRouter } from "next/navigation";
 
 const components: { title: string; href: string }[] = [
   { title: "Web Design", href: "/web_design" },
   { title: "Automation AI", href: "/automation_ai" },
 ];
-
-const router = useRouter()
-const gotoservices = () => {
-  return router.push("/services")
-}
 
 export function NavigationMenuDemo() {
   return (
@@ -246,12 +240,12 @@ export function NavMobile() {
                   <DropdownMenuContent>
                     <DropdownMenuLabel>KyzenDev</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={gotoservices}>App Development</DropdownMenuItem>
-                    <DropdownMenuItem onClick={gotoservices}>Web Development</DropdownMenuItem>
-                    <DropdownMenuItem onClick={gotoservices}>WordPress and CMS Development</DropdownMenuItem>
-                    <DropdownMenuItem onClick={gotoservices}>Course 4Website Maintenance</DropdownMenuItem>
-                    <DropdownMenuItem onClick={gotoservices}>UI/UX Design</DropdownMenuItem>
-                    <DropdownMenuItem onClick={gotoservices}>Technical Support</DropdownMenuItem>
+                    <DropdownMenuItem>App Development</DropdownMenuItem>
+                    <DropdownMenuItem>Web Development</DropdownMenuItem>
+                    <DropdownMenuItem>WordPress and CMS Development</DropdownMenuItem>
+                    <DropdownMenuItem>Course 4Website Maintenance</DropdownMenuItem>
+                    <DropdownMenuItem>UI/UX Design</DropdownMenuItem>
+                    <DropdownMenuItem>Technical Support</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <Link href={""}>blog</Link>
