@@ -35,7 +35,7 @@ const ContactUsPage = () => {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell us more about your project or inquiry..." className="w-full bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                <textarea id="message" name="message" rows={5} placeholder="Tell us more about your project or inquiry..." className="w-full bg-black border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
               </div>
               <button type="submit" className="bg-yellow-400 text-black font-semibold py-3 px-6 rounded-lg w-full sm:w-max hover:bg-yellow-500 transition-colors">
                 Send
