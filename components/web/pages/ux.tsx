@@ -41,6 +41,7 @@ interface Page {
   label: string;
   price: number;
   category: 'traditional' | 'ecommerce';
+  desc?: string; // ADDED: Description for tooltips
 }
 
 // --- Data
@@ -65,19 +66,20 @@ const PACKAGES: PackageTier[] = [
   { id: "blueprint", name: "Your Website Blueprint", tagline: "Foundation + custom features", basePrice: 3299, includes: ["seo_basic", "perf", "custom"], pages: ['home', 'about', 'contact', 'services', 'blog_index'] },
 ];
 
+// MODIFIED: Added 'desc' property to each page for tooltips
 const PAGES: Page[] = [
-  { id: 'home', label: 'Homepage', price: 250, category: 'traditional' },
-  { id: 'about', label: 'About Us', price: 150, category: 'traditional' },
-  { id: 'contact', label: 'Contact Us', price: 150, category: 'traditional' },
-  { id: 'services', label: 'Services / Features', price: 150, category: 'traditional' },
-  { id: 'blog_index', label: 'Blog Index', price: 150, category: 'traditional' },
-  { id: 'faq', label: 'FAQ', price: 150, category: 'traditional' },
-  { id: 'portfolio', label: 'Portfolio / Gallery', price: 200, category: 'traditional' },
-  { id: 'shop', label: 'Main Shop / Product Grid', price: 300, category: 'ecommerce' },
-  { id: 'product_detail', label: 'Product Detail Page Template', price: 250, category: 'ecommerce' },
-  { id: 'cart', label: 'Shopping Cart', price: 200, category: 'ecommerce' },
-  { id: 'checkout', label: 'Checkout Page', price: 300, category: 'ecommerce' },
-  { id: 'account', label: 'User Account / Order History', price: 250, category: 'ecommerce' },
+  { id: 'home', label: 'Homepage', price: 250, category: 'traditional', desc: 'The main landing page of your website, making the first impression on visitors.' },
+  { id: 'about', label: 'About Us', price: 150, category: 'traditional', desc: 'Tell your story, introduce your team, and build trust with your audience.' },
+  { id: 'contact', label: 'Contact Us', price: 150, category: 'traditional', desc: 'A page with a contact form, map, and other ways for users to get in touch.' },
+  { id: 'services', label: 'Services / Features', price: 150, category: 'traditional', desc: 'Detail the services you offer or the features of your product.' },
+  { id: 'blog_index', label: 'Blog Index', price: 150, category: 'traditional', desc: 'A main page to display all your blog posts, articles, or news updates.' },
+  { id: 'faq', label: 'FAQ', price: 150, category: 'traditional', desc: 'Answer common customer questions to reduce support inquiries.' },
+  { id: 'portfolio', label: 'Portfolio / Gallery', price: 200, category: 'traditional', desc: 'Showcase your work, projects, or images in a visually appealing gallery.' },
+  { id: 'shop', label: 'Main Shop / Product Grid', price: 300, category: 'ecommerce', desc: 'The main storefront where all your products are displayed for customers to browse.' },
+  { id: 'product_detail', label: 'Product Detail Page Template', price: 250, category: 'ecommerce', desc: 'A template for individual product pages with images, descriptions, and an "Add to Cart" button.' },
+  { id: 'cart', label: 'Shopping Cart', price: 200, category: 'ecommerce', desc: 'Allows customers to review the items they have selected before proceeding to checkout.' },
+  { id: 'checkout', label: 'Checkout Page', price: 300, category: 'ecommerce', desc: 'A secure page for customers to enter payment and shipping information to complete their purchase.' },
+  { id: 'account', label: 'User Account / Order History', price: 250, category: 'ecommerce', desc: 'A private area for registered customers to view their past orders and manage their details.' },
 ];
 
 const CURRENCY = (n: number) => new Intl.NumberFormat(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
@@ -314,6 +316,7 @@ Optimized for SEO and performance (lazy-loading images, code splitting).
             </CardContent>
           </Card>
 
+          {/* === MODIFIED SECTION START === */}
           <Card className="rounded-2xl">
             <CardHeader>
                 <CardTitle>Select Required Pages</CardTitle>
@@ -326,7 +329,17 @@ Optimized for SEO and performance (lazy-loading images, code splitting).
                         {PAGES.filter(p => p.category === 'traditional').map(page => (
                             <div key={page.id} className="flex items-center space-x-2">
                                 <Checkbox id={page.id} checked={!!selectedPages[page.id]} disabled={selectedPackage.pages.includes(page.id)} onCheckedChange={checked => setSelectedPages(prev => ({ ...prev, [page.id]: !!checked }))} />
-                                <label htmlFor={page.id} className={`text-sm font-medium leading-none ${selectedPackage.pages.includes(page.id) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}>{page.label} ({selectedPackage.pages.includes(page.id) ? 'Included' : CURRENCY(page.price)})</label>
+                                <div className="flex items-center gap-2">
+                                    <label htmlFor={page.id} className={`text-sm font-medium leading-none ${selectedPackage.pages.includes(page.id) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}>{page.label} ({selectedPackage.pages.includes(page.id) ? 'Included' : CURRENCY(page.price)})</label>
+                                    {page.desc && (
+                                       <TooltipProvider>
+                                         <Tooltip>
+                                           <TooltipTrigger asChild><Info className="w-4 h-4 opacity-70" /></TooltipTrigger>
+                                           <TooltipContent className="max-w-xs text-sm leading-relaxed">{page.desc}</TooltipContent>
+                                         </Tooltip>
+                                       </TooltipProvider>
+                                     )}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -337,13 +350,24 @@ Optimized for SEO and performance (lazy-loading images, code splitting).
                         {PAGES.filter(p => p.category === 'ecommerce').map(page => (
                             <div key={page.id} className="flex items-center space-x-2">
                                 <Checkbox id={page.id} checked={!!selectedPages[page.id]} disabled={selectedPackage.pages.includes(page.id)} onCheckedChange={checked => setSelectedPages(prev => ({ ...prev, [page.id]: !!checked }))} />
-                                <label htmlFor={page.id} className={`text-sm font-medium leading-none ${selectedPackage.pages.includes(page.id) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}>{page.label} ({selectedPackage.pages.includes(page.id) ? 'Included' : CURRENCY(page.price)})</label>
+                                <div className="flex items-center gap-2">
+                                    <label htmlFor={page.id} className={`text-sm font-medium leading-none ${selectedPackage.pages.includes(page.id) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}>{page.label} ({selectedPackage.pages.includes(page.id) ? 'Included' : CURRENCY(page.price)})</label>
+                                     {page.desc && (
+                                       <TooltipProvider>
+                                         <Tooltip>
+                                           <TooltipTrigger asChild><Info className="w-4 h-4 opacity-70" /></TooltipTrigger>
+                                           <TooltipContent className="max-w-xs text-sm leading-relaxed">{page.desc}</TooltipContent>
+                                         </Tooltip>
+                                       </TooltipProvider>
+                                     )}
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </CardContent>
           </Card>
+          {/* === MODIFIED SECTION END === */}
 
           <Card className="rounded-2xl">
             <CardHeader><CardTitle>Your Custom Website Project</CardTitle></CardHeader>
@@ -357,15 +381,14 @@ Optimized for SEO and performance (lazy-loading images, code splitting).
                     {items.map((f) => (
                        <div key={f.id} className="flex items-start gap-3 py-2">
                          <Checkbox
-  id={f.id}
-  checked={!!selected[f.id]} // تأكد من boolean
-  onCheckedChange={(v: CheckedState) =>
-    setSelected((s) => ({ ...s, [f.id]: !!v })) // تحويل أي قيمة إلى boolean
-  }
-  disabled={selectedPackage.includes.includes(f.id)}
-  className="mt-1"
-/>
-
+                            id={f.id}
+                            checked={!!selected[f.id]}
+                            onCheckedChange={(v: CheckedState) =>
+                                setSelected((s) => ({ ...s, [f.id]: !!v }))
+                            }
+                            disabled={selectedPackage.includes.includes(f.id)}
+                            className="mt-1"
+                        />
                          <div className="flex-1">
                            <div className="flex items-center gap-2">
                              <label htmlFor={f.id} className={`font-medium ${selectedPackage.includes.includes(f.id) ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}>{f.label}</label>

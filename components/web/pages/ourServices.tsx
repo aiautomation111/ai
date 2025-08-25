@@ -1,5 +1,6 @@
 "use client";
 import Aos from "aos";
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 // A simple arrow icon component for the links
@@ -142,6 +143,10 @@ const OurServices = () => {
               linkHref="/services"
             />
           ))}
+        </div>
+        <div className="mt-8 flex items-center justify-around gap-4" data-aos="fade-up">
+          <Link href={"/create_website"} className="rounded px-5 py-3 bg-black hover:bg-yellow-400 text-white hover:text-black duration-500">Create your website</Link>
+          <Link href={"/create_apps"} className="rounded px-5 py-3 bg-black hover:bg-yellow-400 text-white hover:text-black duration-500">Create your app</Link>
         </div>
       </div>
     </section>
