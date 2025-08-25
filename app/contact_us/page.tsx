@@ -2,7 +2,7 @@
 
 const ContactUsPage = () => {
   return (
-    <div className="bg-black text-white py-20 px-4 sm:px-8">
+    <div className="bg-black  text-white py-20 px-4 sm:px-8">
       <div className="container mx-auto space-y-24">
         
         {/* === Section 1: Heading === */}
