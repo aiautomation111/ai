@@ -49,7 +49,7 @@ export function NavigationMenuDemo() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Services </NavigationMenuTrigger>
             <NavigationMenuContent className=" relative flex items-center justify-center">
               <div className="grid grid-cols-3 w-[90%] rounded-2xl shadow-md bg-white left-[85px] top-[75px] m-auto fixed z-40  gap-3 items-start justify-start">
                 <div className="">
