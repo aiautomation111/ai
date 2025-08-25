@@ -246,12 +246,12 @@ export function NavMobile() {
                   <DropdownMenuContent>
                     <DropdownMenuLabel>KyzenDev</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={}>App Development</DropdownMenuItem>
-                    <DropdownMenuItem>Web Development</DropdownMenuItem>
-                    <DropdownMenuItem>WordPress and CMS Development</DropdownMenuItem>
-                    <DropdownMenuItem>Course 4Website Maintenance</DropdownMenuItem>
-                    <DropdownMenuItem>UI/UX Design</DropdownMenuItem>
-                    <DropdownMenuItem>Technical Support</DropdownMenuItem>
+                    <DropdownMenuItem onClick={gotoservices}>App Development</DropdownMenuItem>
+                    <DropdownMenuItem onClick={gotoservices}>Web Development</DropdownMenuItem>
+                    <DropdownMenuItem onClick={gotoservices}>WordPress and CMS Development</DropdownMenuItem>
+                    <DropdownMenuItem onClick={gotoservices}>Course 4Website Maintenance</DropdownMenuItem>
+                    <DropdownMenuItem onClick={gotoservices}>UI/UX Design</DropdownMenuItem>
+                    <DropdownMenuItem onClick={gotoservices}>Technical Support</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <Link href={""}>blog</Link>
