@@ -464,10 +464,11 @@ export default function FaqSection() {
     setOpenQuestionIndex(0); // Reset to open the first question of the new category
   };
 
-  const handleQuestionClick = (index) => {
-    // If the clicked question is already open, close it. Otherwise, open the new one.
-    setOpenQuestionIndex(openQuestionIndex === index ? null : index);
-  };
+  // Add the 'number' type to the index parameter
+const handleQuestionClick = (index: number) => {
+  // If the clicked question is already open, close it. Otherwise, open the new one.
+  setOpenQuestionIndex(openQuestionIndex === index ? null : index);
+};
 
   const activeFaqs =
     faqData.find((cat) => cat.category === activeCategory)?.faqs || [];
