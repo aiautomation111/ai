@@ -23,16 +23,17 @@ const ServicePage = ({ service }: ServicePageProps) => {
 
   return (
     <div className="bg-white text-gray-900 overflow-hidden">
-      <div className="container mx-auto space-y-24">
+      <div className="mx-auto space-y-24">
 
         {/* === Section 1: Service Title & Description (Dynamic) === */}
-        <section className="text-center w-full h-[87vh] flex px-7 flex-col items-center justify-center gap-4 bg-black text-white p-7 mx-auto">
-          <h1 data-aos="zoom-in" className="text-4xl md:text-6xl font-bold leading-tight mb-4">
+        <section className=" w-full grid grid-cols-1 lg:grid-cols-2 px-7  items-center gap-4 bg-black text-white p-7 mx-auto">
+          <div className="flex flex-col">
+            <h1 data-aos="zoom-in" className="text-4xl md:text-2xl font-bold leading-tight mb-4">
             {service.hero.title}
           </h1>
-          <p data-aos="fade-up" data-aos-delay="200" className="text-gray-400 text-lg">
-            {service.hero.description}
-          </p>
+          <p data-aos="fade-up" data-aos-delay="200" className="text-gray-400 text-md" dangerouslySetInnerHTML={{ __html: service.hero.description }} />
+          </div>
+          <div className="w-full h-[525px]"><img src={service.hero.img} className="w-full h-full" alt="" /></div>
         </section>
 
         {/* === Section 2: Image & Key Features (Dynamic) === */}

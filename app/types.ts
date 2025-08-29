@@ -3,6 +3,7 @@ export interface ServiceData {
   hero: {
     title: string;
     description: string;
+    img:string
   };
   features: {
     imageUrl: string;

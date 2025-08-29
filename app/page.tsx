@@ -18,7 +18,7 @@ export default function Home() {
       <ConterSection/>
       <OurServices/>
       <OurWork/>
-      <OurTeme/>
+      {/* <OurTeme/> */}
       <Testimonial/>
       <QA/>
       <Articals/>
