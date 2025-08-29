@@ -1,6 +1,19 @@
 'use client'
 import React, { useState } from 'react';
 
+
+interface Post {
+  imageUrl: string;
+  title: string;
+  // Add any other properties your post object has, for example:
+  // id: number;
+  // excerpt: string;
+}
+
+interface BlogPostCardProps {
+  post: Post;
+  onViewPost: () => void; // Assumes onViewPost is a function that takes no arguments
+}
 // --- أيقونات SVG بسيطة ---
 const ArrowLeftIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
@@ -66,7 +79,7 @@ const blogPosts = [
 ];
 
 // === مكون بطاقة المدونة (للاستخدام في صفحة القائمة) ===
-const BlogPostCard = ({ post, onViewPost }) => {
+const BlogPostCard = ({ post, onViewPost }:BlogPostCardProps) => {
   return (
     <div className="bg-[#1A1A1A] rounded-lg overflow-hidden border border-gray-800 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
       <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/111/FFF?text=Image+Error'; }}/>
