@@ -16,6 +16,11 @@ interface Post {
 interface BlogListPageProps {
   onViewPost: (id: number) => void; // نفس نوع الدالة التي عرفناها سابقًا
 }
+
+interface BlogPostPageProps {
+  postId: number; // postId هو رقم للمقارنة مع p.id
+  onBack: () => void; // onBack هي دالة للرجوع للخلف، لا تأخذ مدخلات
+}
 interface BlogPostCardProps {
   post: Post;
   onViewPost: (id: number) => void; // Assumes onViewPost is a function that takes no arguments
@@ -135,7 +140,7 @@ const BlogListPage = ({ onViewPost }:BlogListPageProps) => {
 
 
 // === مكون صفحة المدونة الواحدة ===
-const BlogPostPage = ({ postId, onBack }) => {
+const BlogPostPage = ({ postId, onBack }:BlogPostPageProps) => {
   const post = blogPosts.find(p => p.id === postId);
 
   if (!post) {
