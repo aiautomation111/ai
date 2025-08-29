@@ -1,31 +1,31 @@
 'use client'
 import React, { useState } from 'react';
 
-
 // ./app/blogs/page.tsx
 
 interface Post {
   id:number;
   imageUrl: string;
   title: string;
-  excerpt: string; // <-- إضافة الخاصية المفقودة
-  author: string;  // <-- إضافة الخاصية المفقودة
-  date: string;    // <-- إضافة الخاصية المفقودة
+  excerpt: string;
+  author: string;
+  date: string;
 }
 
 interface BlogListPageProps {
-  onViewPost: (id: number) => void; // نفس نوع الدالة التي عرفناها سابقًا
+  onViewPost: (id: number) => void;
 }
 
 interface BlogPostPageProps {
-  postId: number; // postId هو رقم للمقارنة مع p.id
-  onBack: () => void; // onBack هي دالة للرجوع للخلف، لا تأخذ مدخلات
+  postId: number;
+  onBack: () => void;
 }
 interface BlogPostCardProps {
   post: Post;
-  onViewPost: (id: number) => void; // Assumes onViewPost is a function that takes no arguments
+  onViewPost: (id: number) => void;
 }
-// --- أيقونات SVG بسيطة ---
+
+// --- Simple SVG Icons ---
 const ArrowLeftIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -44,91 +44,87 @@ const CalendarIcon = () => (
     </svg>
 );
 
-
-// --- بيانات المدونة الوهمية ---
+// --- Dummy Blog Data ---
 const blogPosts = [
   {
     id: 1,
-    title: "مستقبل تطوير الويب باستخدام React",
-    excerpt: "استكشف أحدث الاتجاهات والميزات في React وكيف تشكل مستقبل تطبيقات الويب التفاعلية.",
-    author: "أحمد علي",
-    date: "15 أغسطس 2024",
+    title: "The Future of Web Development with React",
+    excerpt: "Explore the latest trends and features in React and how they shape the future of interactive web applications.",
+    author: "Ahmed Ali",
+    date: "August 15, 2024",
     imageUrl: "https://placehold.co/600x400/000000/FFFF00?text=React",
     content: `
-      <p>أحدث React ثورة في طريقة بناء واجهات المستخدم. بفضل نموذجه القائم على المكونات وتدفق البيانات أحادي الاتجاه، أصبح تطوير تطبيقات معقدة أسهل من أي وقت مضى.</p>
-      <h3 class="text-2xl font-bold mt-6 mb-3 text-white">الميزات الرئيسية في React 19</h3>
-      <p>يقدم React 19 ميزات مثل الـ 'Hooks' التي تسمح باستخدام الحالة والميزات الأخرى لـ React بدون كتابة 'class'. هذا يجعل الكود أكثر قابلية للقراءة وأسهل في الصيانة.</p>
+      <p>React revolutionized the way we build user interfaces. With its component-based model and one-way data flow, developing complex apps has become easier than ever.</p>
+      <h3 class="text-2xl font-bold mt-6 mb-3 text-white">Key Features in React 19</h3>
+      <p>React 19 introduces features like 'Hooks' that allow using state and other React capabilities without writing 'class'. This makes the code more readable and easier to maintain.</p>
       <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
-        <li>useState: لإدارة الحالة المحلية.</li>
-        <li>useEffect: للتعامل مع الآثار الجانبية.</li>
-        <li>useContext: لمشاركة الحالة عبر المكونات.</li>
+        <li>useState: Manage local state.</li>
+        <li>useEffect: Handle side effects.</li>
+        <li>useContext: Share state across components.</li>
       </ul>
       <blockquote class="border-l-4 border-yellow-400 pl-4 py-2 my-6 text-gray-400 italic">
-        "القدرة على إنشاء مكونات قابلة لإعادة الاستخدام هي واحدة من أقوى ميزات React."
+        "The ability to create reusable components is one of React's strongest features."
       </blockquote>
-      <p>مع استمرار تطور النظام البيئي، يمكننا أن نتوقع رؤية أدوات ومكتبات أكثر قوة مبنية حول React، مما يجعله خيارًا رئيسيًا للمطورين في جميع أنحاء العالم.</p>
+      <p>As the ecosystem evolves, we can expect to see more powerful tools and libraries built around React, making it a top choice for developers worldwide.</p>
     `
   },
   {
     id: 2,
-    title: "دليل تصميم واجهة المستخدم الداكنة",
-    excerpt: "تعلم مبادئ إنشاء واجهات مستخدم داكنة جميلة وسهلة الاستخدام تجذب المستخدمين.",
-    author: "فاطمة محمد",
-    date: "10 أغسطس 2024",
+    title: "Dark Mode UI Design Guide",
+    excerpt: "Learn the principles of creating beautiful and user-friendly dark mode interfaces.",
+    author: "Fatima Mohamed",
+    date: "August 10, 2024",
     imageUrl: "https://placehold.co/600x400/1A1A1A/FFFFFF?text=UI+Design",
-    content: "<p>المحتوى الكامل لمدونة تصميم الواجهة الداكنة يذهب هنا...</p>"
+    content: "<p>Full content of the dark mode UI design blog goes here...</p>"
   },
   {
     id: 3,
-    title: "لماذا Tailwind CSS يغير قواعد اللعبة",
-    excerpt: "نظرة عميقة على إطار العمل CSS القائم على الأدوات المساعدة وكيف يسرع عملية التطوير.",
-    author: "خالد عبدالله",
-    date: "5 أغسطس 2024",
+    title: "Why Tailwind CSS is a Game Changer",
+    excerpt: "A deep dive into the utility-first CSS framework and how it speeds up development.",
+    author: "Khaled Abdullah",
+    date: "August 5, 2024",
     imageUrl: "https://placehold.co/600x400/000000/38BDF8?text=Tailwind",
-    content: "<p>المحتوى الكامل لمدونة Tailwind CSS يذهب هنا...</p>"
+    content: "<p>Full content of the Tailwind CSS blog goes here...</p>"
   }
 ];
 
-// === مكون بطاقة المدونة (للاستخدام في صفحة القائمة) ===
+// === Blog Card Component ===
 const BlogPostCard = ({ post, onViewPost }:BlogPostCardProps) => {
   return (
-    <div className="bg-[#1A1A1A] rounded-lg overflow-hidden border border-gray-800 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+    <div className="bg-gray-100 rounded-lg overflow-hidden border border-gray-300 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
       <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { 
-  const target = e.target as HTMLImageElement;
-  target.onerror = null; // الآن TypeScript يعرف أن هذه الخاصية موجودة
-  target.src = 'https://placehold.co/600x400/111/FFF?text=Image+Error'; 
-}}/>
+        const target = e.target as HTMLImageElement;
+        target.onerror = null; 
+        target.src = 'https://placehold.co/600x400/111/FFF?text=Image+Error'; 
+      }}/>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-black">{post.title}</h3>
         <p className="text-gray-400 mb-4 flex-grow">{post.excerpt}</p>
         <div className="text-sm text-gray-500 flex items-center justify-between mb-4">
             <span className="flex items-center"><UserIcon /> {post.author}</span>
             <span className="flex items-center"><CalendarIcon /> {post.date}</span>
         </div>
-        <button onClick={() => onViewPost(post.id)} className="text-yellow-400 font-semibold hover:underline self-start">
-          اقرأ المزيد &larr;
+        <button onClick={() => onViewPost(post.id)} className="text-yellow-400 cursor-pointer font-semibold hover:underline self-start">
+          Read more &larr;
         </button>
       </div>
     </div>
   );
 };
 
-
-// === مكون صفحة قائمة المدونات ===
+// === Blog List Page ===
 const BlogListPage = ({ onViewPost }:BlogListPageProps) => {
   return (
-    <div className="bg-black text-white py-20 px-4 sm:px-8">
+    <div className="">
       <div className="container mx-auto">
-        {/* === قسم العنوان === */}
-        <section className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">مدونتنا</h1>
+        <section className="text-center mb-16 h-[88vh] w-full bg-black flex items-center justify-center flex-col gap-7">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-50">Our Blog</h1>
           <p className="text-gray-300 text-lg">
-            أحدث المقالات والأفكار من فريقنا. استكشف مواضيع حول التكنولوجيا والتصميم والتطوير.
+            Latest articles and insights from our team. Explore topics in technology, design, and development.
           </p>
         </section>
 
-        {/* === شبكة المدونات === */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  w-[95%] md:w-[90%] mx-auto mb-10">
           {blogPosts.map(post => (
             <BlogPostCard key={post.id} post={post} onViewPost={onViewPost} />
           ))}
@@ -138,18 +134,17 @@ const BlogListPage = ({ onViewPost }:BlogListPageProps) => {
   );
 };
 
-
-// === مكون صفحة المدونة الواحدة ===
+// === Single Blog Post Page ===
 const BlogPostPage = ({ postId, onBack }:BlogPostPageProps) => {
   const post = blogPosts.find(p => p.id === postId);
 
   if (!post) {
     return (
-      <div className="bg-black text-white h-screen flex flex-col items-center justify-center">
-        <h2 className="text-2xl mb-4">لم يتم العثور على المدونة</h2>
+      <div className="bg-white text-black h-screen flex flex-col items-center justify-center">
+        <h2 className="text-2xl mb-4">Blog not found</h2>
         <button onClick={onBack} className="bg-yellow-400 text-black font-semibold py-2 px-5 rounded-lg hover:bg-yellow-500 transition-colors flex items-center">
             <ArrowLeftIcon />
-            العودة إلى المدونة
+            Back to Blog
         </button>
       </div>
     );
@@ -159,29 +154,25 @@ const BlogPostPage = ({ postId, onBack }:BlogPostPageProps) => {
     <div className="bg-black text-white py-20 px-4 sm:px-8">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto">
-            {/* === زر الرجوع === */}
             <button onClick={onBack} className="bg-gray-800 text-white font-semibold py-2 px-5 mb-8 rounded-lg hover:bg-gray-700 transition-colors flex items-center">
                 <ArrowLeftIcon />
-                العودة إلى كل المقالات
+                Back to all posts
             </button>
 
-          {/* === رأس المدونة === */}
           <header className="mb-8">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-white leading-tight">{post.title}</h1>
-            <div className="text-md text-gray-400 flex items-center space-x-4 rtl:space-x-reverse">
+            <div className="text-md text-gray-400 flex items-center space-x-4">
               <span className="flex items-center"><UserIcon /> {post.author}</span>
               <span>&bull;</span>
               <span className="flex items-center"><CalendarIcon /> {post.date}</span>
             </div>
           </header>
 
-          {/* === الصورة الرئيسية === */}
           <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-lg mb-8 border border-gray-800" onError={(e) => {
-  (e.target as HTMLImageElement).onerror = null;
-  (e.target as HTMLImageElement).src = 'https://placehold.co/1200x600/111/FFF?text=Image+Error';
-}}/>
+            (e.target as HTMLImageElement).onerror = null;
+            (e.target as HTMLImageElement).src = 'https://placehold.co/1200x600/111/FFF?text=Image+Error';
+          }}/>
 
-          {/* === محتوى المدونة === */}
           <article 
             className="prose prose-invert prose-lg max-w-none text-gray-300"
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -193,36 +184,31 @@ const BlogPostPage = ({ postId, onBack }:BlogPostPageProps) => {
   );
 };
 
-
-// === مكون اتصل بنا (من طلبك الأصلي) ===
+// === Contact Us Page ===
 const ContactUsPage = () => {
-    // ... الكود الخاص بصفحة اتصل بنا يوضع هنا ...
     return (
         <div className="bg-black text-white py-20 px-4 sm:px-8">
             <div className="container mx-auto space-y-24">
                 <section className="text-center max-w-3xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">لنتحدث عن مشروعك</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Let’s Talk About Your Project</h1>
                     <p className="text-gray-300 text-lg">
-                        سواء كان لديك سؤال، فكرة مشروع، أو ترغب فقط في معرفة المزيد، نحن هنا للاستماع. املأ النموذج أدناه أو استخدم إحدى طرق الاتصال المباشرة.
+                        Whether you have a question, a project idea, or just want to learn more, we’re here to listen. Fill out the form below or use one of the direct contact methods.
                     </p>
                 </section>
-                {/* ... بقية كود صفحة اتصل بنا ... */}
             </div>
         </div>
     );
 };
 
-
-// === المكون الرئيسي للتطبيق (للتبديل بين الصفحات) ===
+// === Main App Component ===
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('blogList'); // 'blogList', 'blogPost', 'contact'
+  const [currentPage, setCurrentPage] = useState('blogList');
   const [currentPostId, setCurrentPostId] = useState<number | null>(null);
 
-// 2. حدد نوع المعامل id
-const handleViewPost = (id: number) => {
-  setCurrentPostId(id);
-  setCurrentPage('blogPost');
-};
+  const handleViewPost = (id: number) => {
+    setCurrentPostId(id);
+    setCurrentPage('blogPost');
+  };
 
   const handleBackToBlog = () => {
     setCurrentPage('blogList');
@@ -233,8 +219,8 @@ const handleViewPost = (id: number) => {
     switch (currentPage) {
       case 'blogPost':
         if (currentPostId !== null) {
-      return <BlogPostPage postId={currentPostId} onBack={handleBackToBlog} />;
-    }
+          return <BlogPostPage postId={currentPostId} onBack={handleBackToBlog} />;
+        }
       case 'contact':
         return <ContactUsPage />;
       case 'blogList':
@@ -245,15 +231,6 @@ const handleViewPost = (id: number) => {
 
   return (
     <div>
-        {/* --- شريط التنقل --- */}
-        <nav className="bg-[#1A1A1A] p-4 border-b border-gray-800 sticky top-0 z-10">
-            <div className="container mx-auto flex justify-center items-center gap-6">
-                <button onClick={() => setCurrentPage('blogList')} className={`font-semibold ${currentPage.startsWith('blog') ? 'text-yellow-400' : 'text-white'} hover:text-yellow-400 transition-colors`}>المدونة</button>
-                <button onClick={() => setCurrentPage('contact')} className={`font-semibold ${currentPage === 'contact' ? 'text-yellow-400' : 'text-white'} hover:text-yellow-400 transition-colors`}>اتصل بنا</button>
-            </div>
-        </nav>
-        
-        {/* --- عرض الصفحة الحالية --- */}
         <main>
             {renderPage()}
         </main>

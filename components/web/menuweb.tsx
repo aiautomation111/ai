@@ -12,7 +12,7 @@ const strategyLinks = [
 ];
 
 const executionLinks = [
-  { href: "/services", label: "Web & E-commerce Solutions" },
+  { href: "/Web_&_E-commerce_Solutions", label: "Web & E-commerce Solutions" },
   { href: "/services", label: "Mobile & Cross-Platform Apps" },
   { href: "/services", label: "System Integrations & Automation" },
   { href: "/services", label: "User Experience & Insights" },
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* Nav Item with Mega Menu: Services */}
         <li className="group relative">
-          <Link href={"/services2"} className="font-semibold text-white hover:text-yellow-500 transition-colors flex items-center gap-x-1">
+          <Link href={"/services"} className="font-semibold text-white hover:text-yellow-500 transition-colors flex items-center gap-x-1">
             Services
             <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180" />
           </Link>

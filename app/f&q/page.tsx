@@ -474,14 +474,16 @@ const handleQuestionClick = (index: number) => {
     faqData.find((cat) => cat.category === activeCategory)?.faqs || [];
 
   return (
-    <section className="bg-white py-12 md:py-20">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-8">
+    <section className="">
+      <div className="">
+        <div className="h-[88vh] w-full bg-black flex items-center justify-center ">
+          <h2 className="text-3xl font-extrabold text-center text-gray-50 mb-8">
           Frequently Asked Questions
         </h2>
+        </div>
 
         {/* Category Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className=" w-[95%] md:w-[90%] mt-10 mx-auto flex flex-wrap justify-center gap-3 mb-10">
           {faqData.map((item) => (
             <button
               key={item.category}
@@ -498,7 +500,7 @@ const handleQuestionClick = (index: number) => {
         </div>
 
         {/* Accordion */}
-        <div>
+        <div className=" w-[95%] mb-10 md:w-[90%] mx-auto">
           {activeFaqs.map((faq, index) => (
             <AccordionItem
               key={index}
