@@ -66,7 +66,7 @@ const CalendarIcon = () => (
 // ];
 
 // === مكون بطاقة المدونة (للاستخدام في صفحة القائمة) ===
-const BlogPostCard = ({ post, onViewPost }) => {
+const BlogPostCard = () => {
   return (
     <div className="bg-[#1A1A1A] rounded-lg overflow-hidden border border-gray-800 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
       {/* <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/111/FFF?text=Image+Error'; }}/>
