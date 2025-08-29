@@ -232,7 +232,9 @@ const handleViewPost = (id: number) => {
   const renderPage = () => {
     switch (currentPage) {
       case 'blogPost':
-        return <BlogPostPage postId={currentPostId} onBack={handleBackToBlog} />;
+        if (currentPostId !== null) {
+      return <BlogPostPage postId={currentPostId} onBack={handleBackToBlog} />;
+    }
       case 'contact':
         return <ContactUsPage />;
       case 'blogList':
