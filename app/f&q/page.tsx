@@ -459,7 +459,7 @@ export default function FaqSection() {
   // State to track which question is open. Default to 0 (the first question)
   const [openQuestionIndex, setOpenQuestionIndex] = useState(0);
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category:string) => {
     setActiveCategory(category);
     setOpenQuestionIndex(0); // Reset to open the first question of the new category
   };
