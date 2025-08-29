@@ -3,6 +3,13 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+type AccordionItemProps = {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onClick: () => void; // A function that takes no arguments and returns nothing
+};
+
 // --- Data Structure for all FAQs ---
 const faqData = [
   {
@@ -418,7 +425,7 @@ const faqData = [
 ];
 
 // --- The Accordion Item Component ---
-const AccordionItem = ({ question, answer, isOpen, onClick }) => {
+const AccordionItem = ({ question, answer, isOpen, onClick }:AccordionItemProps) => {
   return (
     <div className="border-b border-gray-200 py-4">
       <button
