@@ -82,7 +82,11 @@ const blogPosts = [
 const BlogPostCard = ({ post, onViewPost }:BlogPostCardProps) => {
   return (
     <div className="bg-[#1A1A1A] rounded-lg overflow-hidden border border-gray-800 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-      <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/111/FFF?text=Image+Error'; }}/>
+      <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { 
+  const target = e.target as HTMLImageElement;
+  target.onerror = null; // الآن TypeScript يعرف أن هذه الخاصية موجودة
+  target.src = 'https://placehold.co/600x400/111/FFF?text=Image+Error'; 
+}}/>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
         <p className="text-gray-400 mb-4 flex-grow">{post.excerpt}</p>
