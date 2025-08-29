@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 
 
+// ./app/blogs/page.tsx
+
 interface Post {
   imageUrl: string;
   title: string;
-  // Add any other properties your post object has, for example:
-  // id: number;
-  // excerpt: string;
+  excerpt: string; // <-- إضافة الخاصية المفقودة
+  author: string;  // <-- إضافة الخاصية المفقودة
+  date: string;    // <-- إضافة الخاصية المفقودة
 }
 
 interface BlogPostCardProps {
