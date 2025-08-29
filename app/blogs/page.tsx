@@ -176,7 +176,10 @@ const BlogPostPage = ({ postId, onBack }:BlogPostPageProps) => {
           </header>
 
           {/* === الصورة الرئيسية === */}
-          <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-lg mb-8 border border-gray-800" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/1200x600/111/FFF?text=Image+Error'; }}/>
+          <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-lg mb-8 border border-gray-800" onError={(e) => {
+  (e.target as HTMLImageElement).onerror = null;
+  (e.target as HTMLImageElement).src = 'https://placehold.co/1200x600/111/FFF?text=Image+Error';
+}}/>
 
           {/* === محتوى المدونة === */}
           <article 
