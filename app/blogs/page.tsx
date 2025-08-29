@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 // ./app/blogs/page.tsx
 
 interface Post {
+  id:number;
   imageUrl: string;
   title: string;
   excerpt: string; // <-- إضافة الخاصية المفقودة
@@ -14,7 +15,7 @@ interface Post {
 
 interface BlogPostCardProps {
   post: Post;
-  onViewPost: () => void; // Assumes onViewPost is a function that takes no arguments
+  onViewPost: (id: number) => void; // Assumes onViewPost is a function that takes no arguments
 }
 // --- أيقونات SVG بسيطة ---
 const ArrowLeftIcon = () => (
