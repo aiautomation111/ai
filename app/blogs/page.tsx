@@ -216,12 +216,13 @@ const ContactUsPage = () => {
 // === المكون الرئيسي للتطبيق (للتبديل بين الصفحات) ===
 export default function App() {
   const [currentPage, setCurrentPage] = useState('blogList'); // 'blogList', 'blogPost', 'contact'
-  const [currentPostId, setCurrentPostId] = useState(null);
+  const [currentPostId, setCurrentPostId] = useState<number | null>(null);
 
-  const handleViewPost = (id) => {
-    setCurrentPostId(id);
-    setCurrentPage('blogPost');
-  };
+// 2. حدد نوع المعامل id
+const handleViewPost = (id: number) => {
+  setCurrentPostId(id);
+  setCurrentPage('blogPost');
+};
 
   const handleBackToBlog = () => {
     setCurrentPage('blogList');
