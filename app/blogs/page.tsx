@@ -13,6 +13,9 @@ interface Post {
   date: string;    // <-- إضافة الخاصية المفقودة
 }
 
+interface BlogListPageProps {
+  onViewPost: (id: number) => void; // نفس نوع الدالة التي عرفناها سابقًا
+}
 interface BlogPostCardProps {
   post: Post;
   onViewPost: (id: number) => void; // Assumes onViewPost is a function that takes no arguments
@@ -107,7 +110,7 @@ const BlogPostCard = ({ post, onViewPost }:BlogPostCardProps) => {
 
 
 // === مكون صفحة قائمة المدونات ===
-const BlogListPage = ({ onViewPost }) => {
+const BlogListPage = ({ onViewPost }:BlogListPageProps) => {
   return (
     <div className="bg-black text-white py-20 px-4 sm:px-8">
       <div className="container mx-auto">
