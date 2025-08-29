@@ -457,7 +457,7 @@ export default function FaqSection() {
   const [activeCategory, setActiveCategory] = useState(faqData[0].category);
 
   // State to track which question is open. Default to 0 (the first question)
-  const [openQuestionIndex, setOpenQuestionIndex] = useState(0);
+  const [openQuestionIndex, setOpenQuestionIndex] = useState<number | null>(0);
 
   const handleCategoryClick = (category:string) => {
     setActiveCategory(category);
