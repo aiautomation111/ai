@@ -21,55 +21,55 @@ const CalendarIcon = () => (
 );
 
 
-// --- بيانات المدونة الوهمية ---
-const blogPosts = [
-  {
-    id: 1,
-    title: "مستقبل تطوير الويب باستخدام React",
-    excerpt: "استكشف أحدث الاتجاهات والميزات في React وكيف تشكل مستقبل تطبيقات الويب التفاعلية.",
-    author: "أحمد علي",
-    date: "15 أغسطس 2024",
-    imageUrl: "https://placehold.co/600x400/000000/FFFF00?text=React",
-    content: `
-      <p>أحدث React ثورة في طريقة بناء واجهات المستخدم. بفضل نموذجه القائم على المكونات وتدفق البيانات أحادي الاتجاه، أصبح تطوير تطبيقات معقدة أسهل من أي وقت مضى.</p>
-      <h3 class="text-2xl font-bold mt-6 mb-3 text-white">الميزات الرئيسية في React 19</h3>
-      <p>يقدم React 19 ميزات مثل الـ 'Hooks' التي تسمح باستخدام الحالة والميزات الأخرى لـ React بدون كتابة 'class'. هذا يجعل الكود أكثر قابلية للقراءة وأسهل في الصيانة.</p>
-      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
-        <li>useState: لإدارة الحالة المحلية.</li>
-        <li>useEffect: للتعامل مع الآثار الجانبية.</li>
-        <li>useContext: لمشاركة الحالة عبر المكونات.</li>
-      </ul>
-      <blockquote class="border-l-4 border-yellow-400 pl-4 py-2 my-6 text-gray-400 italic">
-        "القدرة على إنشاء مكونات قابلة لإعادة الاستخدام هي واحدة من أقوى ميزات React."
-      </blockquote>
-      <p>مع استمرار تطور النظام البيئي، يمكننا أن نتوقع رؤية أدوات ومكتبات أكثر قوة مبنية حول React، مما يجعله خيارًا رئيسيًا للمطورين في جميع أنحاء العالم.</p>
-    `
-  },
-  {
-    id: 2,
-    title: "دليل تصميم واجهة المستخدم الداكنة",
-    excerpt: "تعلم مبادئ إنشاء واجهات مستخدم داكنة جميلة وسهلة الاستخدام تجذب المستخدمين.",
-    author: "فاطمة محمد",
-    date: "10 أغسطس 2024",
-    imageUrl: "https://placehold.co/600x400/1A1A1A/FFFFFF?text=UI+Design",
-    content: "<p>المحتوى الكامل لمدونة تصميم الواجهة الداكنة يذهب هنا...</p>"
-  },
-  {
-    id: 3,
-    title: "لماذا Tailwind CSS يغير قواعد اللعبة",
-    excerpt: "نظرة عميقة على إطار العمل CSS القائم على الأدوات المساعدة وكيف يسرع عملية التطوير.",
-    author: "خالد عبدالله",
-    date: "5 أغسطس 2024",
-    imageUrl: "https://placehold.co/600x400/000000/38BDF8?text=Tailwind",
-    content: "<p>المحتوى الكامل لمدونة Tailwind CSS يذهب هنا...</p>"
-  }
-];
+// // --- بيانات المدونة الوهمية ---
+// const blogPosts = [
+//   {
+//     id: 1,
+//     title: "مستقبل تطوير الويب باستخدام React",
+//     excerpt: "استكشف أحدث الاتجاهات والميزات في React وكيف تشكل مستقبل تطبيقات الويب التفاعلية.",
+//     author: "أحمد علي",
+//     date: "15 أغسطس 2024",
+//     imageUrl: "https://placehold.co/600x400/000000/FFFF00?text=React",
+//     content: `
+//       <p>أحدث React ثورة في طريقة بناء واجهات المستخدم. بفضل نموذجه القائم على المكونات وتدفق البيانات أحادي الاتجاه، أصبح تطوير تطبيقات معقدة أسهل من أي وقت مضى.</p>
+//       <h3 class="text-2xl font-bold mt-6 mb-3 text-white">الميزات الرئيسية في React 19</h3>
+//       <p>يقدم React 19 ميزات مثل الـ 'Hooks' التي تسمح باستخدام الحالة والميزات الأخرى لـ React بدون كتابة 'class'. هذا يجعل الكود أكثر قابلية للقراءة وأسهل في الصيانة.</p>
+//       <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
+//         <li>useState: لإدارة الحالة المحلية.</li>
+//         <li>useEffect: للتعامل مع الآثار الجانبية.</li>
+//         <li>useContext: لمشاركة الحالة عبر المكونات.</li>
+//       </ul>
+//       <blockquote class="border-l-4 border-yellow-400 pl-4 py-2 my-6 text-gray-400 italic">
+//         "القدرة على إنشاء مكونات قابلة لإعادة الاستخدام هي واحدة من أقوى ميزات React."
+//       </blockquote>
+//       <p>مع استمرار تطور النظام البيئي، يمكننا أن نتوقع رؤية أدوات ومكتبات أكثر قوة مبنية حول React، مما يجعله خيارًا رئيسيًا للمطورين في جميع أنحاء العالم.</p>
+//     `
+//   },
+//   {
+//     id: 2,
+//     title: "دليل تصميم واجهة المستخدم الداكنة",
+//     excerpt: "تعلم مبادئ إنشاء واجهات مستخدم داكنة جميلة وسهلة الاستخدام تجذب المستخدمين.",
+//     author: "فاطمة محمد",
+//     date: "10 أغسطس 2024",
+//     imageUrl: "https://placehold.co/600x400/1A1A1A/FFFFFF?text=UI+Design",
+//     content: "<p>المحتوى الكامل لمدونة تصميم الواجهة الداكنة يذهب هنا...</p>"
+//   },
+//   {
+//     id: 3,
+//     title: "لماذا Tailwind CSS يغير قواعد اللعبة",
+//     excerpt: "نظرة عميقة على إطار العمل CSS القائم على الأدوات المساعدة وكيف يسرع عملية التطوير.",
+//     author: "خالد عبدالله",
+//     date: "5 أغسطس 2024",
+//     imageUrl: "https://placehold.co/600x400/000000/38BDF8?text=Tailwind",
+//     content: "<p>المحتوى الكامل لمدونة Tailwind CSS يذهب هنا...</p>"
+//   }
+// ];
 
 // === مكون بطاقة المدونة (للاستخدام في صفحة القائمة) ===
 const BlogPostCard = ({ post, onViewPost }) => {
   return (
     <div className="bg-[#1A1A1A] rounded-lg overflow-hidden border border-gray-800 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-      <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/111/FFF?text=Image+Error'; }}/>
+      {/* <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/111/FFF?text=Image+Error'; }}/>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
         <p className="text-gray-400 mb-4 flex-grow">{post.excerpt}</p>
@@ -80,7 +80,7 @@ const BlogPostCard = ({ post, onViewPost }) => {
         <button onClick={() => onViewPost(post.id)} className="text-yellow-400 font-semibold hover:underline self-start">
           اقرأ المزيد &larr;
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
